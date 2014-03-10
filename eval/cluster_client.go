@@ -49,5 +49,4 @@ func main() {
 	fmt.Println((<-s[4].Inbox()).Msg)
 	fmt.Println((<-s[5].Inbox()).Msg)
 
-*/
 }
