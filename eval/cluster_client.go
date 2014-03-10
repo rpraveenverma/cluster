@@ -48,18 +48,6 @@ func main() {
 	fmt.Println((<-s[3].Inbox()).Msg)
 	fmt.Println((<-s[4].Inbox()).Msg)
 	fmt.Println((<-s[5].Inbox()).Msg)
-	/*fmt.Println((<-s7.Inbox()).Msg)
-	fmt.Println((<-s8.Inbox()).Msg)
-	fmt.Println((<-s9.Inbox()).Msg)
-	fmt.Println((<-s10.Inbox()).Msg)
-	fmt.Println((<-s11.Inbox()).Msg)
-	fmt.Println((<-s12.Inbox()).Msg)
-	fmt.Println((<-s13.Inbox()).Msg)
-	fmt.Println((<-s14.Inbox()).Msg)
-	fmt.Println((<-s15.Inbox()).Msg)
-	fmt.Println((<-s16.Inbox()).Msg)
-	fmt.Println((<-s17.Inbox()).Msg)
-	fmt.Println((<-s18.Inbox()).Msg)
-/*
+
 */
 }
