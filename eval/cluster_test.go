@@ -12,7 +12,7 @@ import "reflect"
 var s [10]cluster.Servernode
 var mutex = &sync.Mutex{}
 var count int
-
+//Basic test to check whether messages are being sent or not.
 func TestBasicPointToPoint(t *testing.T) {
 	j := 100
 	for i := 0; i < 10; i++ {
@@ -21,14 +21,14 @@ func TestBasicPointToPoint(t *testing.T) {
 		time.Sleep(time.Millisecond)
 	}
 
-	s[0].Outbox() <- &cluster.Envelope{Pid: 101, Msg: "hello there"}
+	s[0].Outbox() <- &cluster.Envelope{Pid: 101, Msg: "hello there"} // sending envelope to a channel
 
 	if (<-s[1].Inbox()).Msg != "hello there" {
 		t.Fail()
 	}
 
 }
-
+// One to Many testing
 func TestBasicBroadcast(t *testing.T) {
 
 	s[0].Outbox() <- &cluster.Envelope{Pid: cluster.BROADCAST, Msg: "hello there"}
@@ -41,7 +41,7 @@ func TestBasicBroadcast(t *testing.T) {
 
 	}
 }
-
+// One to Many with 10000 messages with safe arrival
 func TestBasicBroadCastHeavy(t *testing.T) {
 	var count int
 	var n int
@@ -64,7 +64,7 @@ func TestBasicBroadCastHeavy(t *testing.T) {
 		t.Fail()
 	}
 }
-
+// Many to Many broadcast with Safe Arriaval
 func TestBroadcastHeavy(t *testing.T) {
 	count = 0
 	for i := 0; i < 10; i++ {
