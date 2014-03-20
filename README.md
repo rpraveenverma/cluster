@@ -32,7 +32,8 @@ func main() {
  	
 }
 ```
-
+#Reliablity
+`Cluster` is Reliable at scale.You just need to configure file say `configurationfile.json` with as much server as u can.You can instantiate servers as per your need.System is tested by broadcasting thousands of message to each other.This is also checked that one message is reached only once.
 # Install
 $ shows your terminal representation.
 ```
