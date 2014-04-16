@@ -29,7 +29,9 @@ type Envelope struct {
 	// higher levels. It is opaque to this package.
 
 	// the actual message.
-	Msg interface{}
+	Msgtype string
+
+	Msg []byte
 }
 
 type Server interface {
@@ -110,7 +112,7 @@ func (s Servernode)RecieveMessage(responder *zmq.Socket){
 			}
 	err1:=json.Unmarshal(msgbytes,&data)
 		if err1 !=nil {
-			panic("Unmarshling the data")
+			panic("panic in Unmarshling the data")
 		}
 	s.inbox <- &data
 	}
